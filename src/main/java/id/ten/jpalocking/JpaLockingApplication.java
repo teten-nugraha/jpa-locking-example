@@ -50,12 +50,14 @@ public class JpaLockingApplication implements CommandLineRunner {
         dataFlight1.setNumber("FLT123");
         dataFlight1.setDepartureTime(LocalDateTime.now());
         dataFlight1.setCapacity(2);
+        dataFlight1.setVersion(0L);
 
         Flight dataFlight2 = new Flight();
         dataFlight2.setId(2L);
         dataFlight2.setNumber("FLT345");
         dataFlight2.setDepartureTime(LocalDateTime.now());
         dataFlight2.setCapacity(10);
+        dataFlight2.setVersion(0L);
 
         flightRepository.save(dataFlight1);
         flightRepository.save(dataFlight2);

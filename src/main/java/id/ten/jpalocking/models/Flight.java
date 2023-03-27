@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -29,6 +30,9 @@ public class Flight {
 
     @OneToMany(mappedBy = "flight")
     private Set<Ticket> tickets;
+
+    @Version
+    private Long version;
 
     public Flight() {
     }
@@ -83,5 +87,13 @@ public class Flight {
 
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }
